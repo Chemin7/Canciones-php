@@ -12,13 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/canciones', function () {
+Route::get('/canciones/{id?}', function ($id = null) {
     $canciones = [];
 $canciones[0] = ['cancion'=>'sundress','artista'=>'ASAP Roky'];
 $canciones[1] = ['cancion' => 'space song','artista'=>'beach house'];
 $canciones[2] = ['cancion' => 'sweet dreams','artista'=>'eurythmics'];
-    return view('index')->with(['canciones' => $canciones]);
+
+if(!is_null($id)){
+    $cancion = $canciones[$id];
+}else{
+    $cancion = null;
+}
+
+    return view('index',compact('canciones','cancion'));
 });
+/*
 Route::get('/canciones/{id}', function ($id) {
     $canciones = [];
     $canciones[0] = ['cancion'=>'sundress','artista'=>'ASAP Roky'];
@@ -27,7 +35,7 @@ Route::get('/canciones/{id}', function ($id) {
 
     $cancion = $canciones[$id];
     return view('detalle',compact('cancion'));
-});
+});*/
 
 Route::get('/', function () {
     return view('welcome');
