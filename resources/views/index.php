@@ -14,7 +14,7 @@
         <li>Sweet dreams</li>
     </ul>
     <?php
-$cars = array("Volvo", "BMW", "Toyota"); 
+$cars = array(); 
 
 ?>
 </body>
