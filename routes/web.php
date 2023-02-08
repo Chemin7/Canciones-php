@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/canciones', function () {
-    return view('index');
+    $canciones = [];
+$canciones[0] = ['cancion'=>'sundress','artista'=>'ASAP Roky'];
+$canciones[1] = ['cancion' => 'space song','artista'=>'beach house'];
+$canciones[2] = ['cancion' => 'sweet dreams','artista'=>'eurythmics'];
+    return view('index')->with(['canciones' => $canciones]);
 });
 
 
