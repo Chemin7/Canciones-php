@@ -14,7 +14,14 @@
         <li>Sweet dreams</li>
     </ul>
     <?php
-$cars = array(); 
+$canciones = [];
+$canciones[0] = ['cancion'=>'sundress','artista'=>'ASAP Roky'];
+$canciones[1] = ['cancion' => 'space song','artista'=>'beach house'];
+$canciones[2] = ['cancion' => 'sweet dreams','artista'=>'eurythmics'];
+
+for($i=0;$i<count($canciones);$i++){
+    echo "Index ".$i."= ".$canciones[$i]."<br>";
+    }
 
 ?>
 </body>
