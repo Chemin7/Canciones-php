@@ -25,6 +25,17 @@ class paginasController extends Controller
     }
 
     public function postContacto(Request $request){
-        dd($request->all());
+        //Validlar informacion
+        $request->validate([
+            'nombre'=> 'required|string|max:255',
+            'codigo' => ['required','integer','max:100']
+        ]);
+
+        dd('si paso la validacion');
+        //Guardar a DB
+
+        //Direccionar a otra URL
+
+
     }
 }

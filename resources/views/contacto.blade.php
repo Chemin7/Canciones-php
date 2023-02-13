@@ -12,8 +12,14 @@
         @csrf
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" id="nombre">
+        @error('nombre')
+            <h5>{{$message}}</h5>
+        @enderror
         <label for="codigo">Codigo</label>
         <input type="text" name="codigo" id="codigo">
+        @error('codigo')
+            <h5>{{$message}}</h5>
+        @enderror
         <input type="submit" value="Enviar">
     </form>
 </body>
