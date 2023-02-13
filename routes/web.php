@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\paginasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,20 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/canciones/{id?}', function ($id = null) {
-    $canciones = [];
-$canciones[0] = ['cancion'=>'sundress','artista'=>'ASAP Roky'];
-$canciones[1] = ['cancion' => 'space song','artista'=>'beach house'];
-$canciones[2] = ['cancion' => 'sweet dreams','artista'=>'eurythmics'];
+Route::get('/canciones/{id?}', [paginasController::class,"canciones"]);
 
-if(!is_null($id)){
-    $cancion = $canciones[$id];
-}else{
-    $cancion = null;
-}
+Route::get('/contacto',[paginasController::class,"contacto"]);
 
-    return view('index',compact('canciones','cancion'));
-});
+Route::post('/contacto',[paginasController::class,"postContacto"]);
 /*
 Route::get('/canciones/{id}', function ($id) {
     $canciones = [];
